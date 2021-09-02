@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Counter from "./components/counter/Counter";
+import Todo from "./components/todo/Todo";
 
 function App() {
+  const todos = [
+    { id: 1, title: "prepare breakfast", completed: false },
+    { id: 2, title: "study", completed: true },
+  ];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Counter />
+      <br />
+
+      <div>
+        <h1>Todo app</h1>
+        {todos.map((todo) => {
+          return <Todo todo={todo} />;
+        })}
+      </div>
     </div>
   );
 }
